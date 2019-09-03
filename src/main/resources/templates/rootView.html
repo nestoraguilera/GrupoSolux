@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Pagina principal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Resultados del Test</h1>
+	<ul>
+		<li>Nestor Andres Aguilera Obregon</li>
+		<li>nestoraguilera@gmail.com</li>
+		<li>+56 9 9484 4710</li>
+	</ul>
+	<h2>Tecnologia empleada</h2>
+	<ul>
+		<li>Spring core</li>
+		<li>Spring boot</li>
+		<li>Spring mvc+thymeleaf</li>
+	</ul>
+	<h2>Ejercicio 1</h2>
+	<p th:if="${acquired}" th:text="${MfaName} + ' - ' + ${MfaSpecie}" />
+	<p th:if="${!acquired}" style="color: red;">Los datos aún se estan
+		cargando desde 'swapi.co' espere y refresque!</p>
+	<h2>Ejercicio 2</h2>
+	<p>La solicitud no es posible de completar...</p>
+	<p>no existe una relacion univoca de las tres entidades donde se
+		pueda parear resultados entre people+film+(vehicle|starship) sin
+		provocar el producto cartesiano</p>
+	<p>
+		De igual manera se incluye una lista con los vehiculos y naves de <strong>"Obi-Wan
+			Kenobi"</strong>
+	</p>
+	<table border="1" th:if="${acquired}">
+		<th:block th:each="v : ${vehicles}">
+			<tr>
+				<td th:text="${v.name}"></td>
+				<td th:text="${v.type}"></td>
+			</tr>
+		</th:block>
+	</table>
+	<p th:if="${!acquired}" style="color: red;">Los datos aún se estan
+		cargando desde 'swapi.co' espere y refresque!</p>
+	<h2>Ejercicio 3</h2>
+	<p>Es posible apreciar que se esta ejecutando una instancia de
+		spring boot con la solucion requerida</p>
+</body>
+</html>
